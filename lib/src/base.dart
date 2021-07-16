@@ -141,11 +141,11 @@ class FlutterWebviewPlugin {
   /// - [withOverviewMode]: enable overview mode for Android webview ( setLoadWithOverviewMode )
   /// - [useWideViewPort]: use wide viewport for Android webview ( setUseWideViewPort )
   /// - [ignoreSSLErrors]: use to bypass Android/iOS SSL checks e.g. for self-signed certificates
-  Future<Null> launch(
+  Future<void> launch(
     String url, {
     Map<String, String>? headers,
     Set<JavascriptChannel> javascriptChannels = const <JavascriptChannel>{},
-    bool withJavascript = true,
+    required bool withJavascript,
     bool clearCache = false,
     bool clearCookies = false,
     bool mediaPlaybackRequiresUserGesture = true,
@@ -171,28 +171,28 @@ class FlutterWebviewPlugin {
   }) async {
     final args = <String, dynamic>{
       'url': url,
-      'withJavascript': withJavascript ?? true,
-      'clearCache': clearCache ?? false,
-      'hidden': hidden ?? false,
-      'clearCookies': clearCookies ?? false,
-      'mediaPlaybackRequiresUserGesture': mediaPlaybackRequiresUserGesture ?? true,
-      'enableAppScheme': enableAppScheme ?? true,
+      'withJavascript': withJavascript = true,
+      'clearCache': clearCache = false,
+      'hidden': hidden = false,
+      'clearCookies': clearCookies = false,
+      'mediaPlaybackRequiresUserGesture': mediaPlaybackRequiresUserGesture = true,
+      'enableAppScheme': enableAppScheme = true,
       'userAgent': userAgent,
-      'withZoom': withZoom ?? false,
-      'displayZoomControls': displayZoomControls ?? false,
-      'withLocalStorage': withLocalStorage ?? true,
-      'withLocalUrl': withLocalUrl ?? false,
+      'withZoom': withZoom = false,
+      'displayZoomControls': displayZoomControls = false,
+      'withLocalStorage': withLocalStorage = true,
+      'withLocalUrl': withLocalUrl = false,
       'localUrlScope': localUrlScope,
-      'scrollBar': scrollBar ?? true,
-      'supportMultipleWindows': supportMultipleWindows ?? false,
-      'appCacheEnabled': appCacheEnabled ?? false,
-      'allowFileURLs': allowFileURLs ?? false,
-      'useWideViewPort': useWideViewPort ?? false,
+      'scrollBar': scrollBar = true,
+      'supportMultipleWindows': supportMultipleWindows = false,
+      'appCacheEnabled': appCacheEnabled = false,
+      'allowFileURLs': allowFileURLs = false,
+      'useWideViewPort': useWideViewPort = false,
       'invalidUrlRegex': invalidUrlRegex,
-      'geolocationEnabled': geolocationEnabled ?? false,
-      'withOverviewMode': withOverviewMode ?? false,
-      'debuggingEnabled': debuggingEnabled ?? false,
-      'ignoreSSLErrors': ignoreSSLErrors ?? false,
+      'geolocationEnabled': geolocationEnabled = false,
+      'withOverviewMode': withOverviewMode = false,
+      'debuggingEnabled': debuggingEnabled = false,
+      'ignoreSSLErrors': ignoreSSLErrors = false,
     };
 
     if (headers != null) {

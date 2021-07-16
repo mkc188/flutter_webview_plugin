@@ -247,6 +247,7 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 flutterWebViewPlugin.launch(
                   selectedUrl,
+                  withJavascript: true,
                   rect: Rect.fromLTWH(
                       0.0, 0.0, MediaQuery.of(context).size.width, 300.0),
                   userAgent: kAndroidUserAgent,
@@ -258,13 +259,13 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ElevatedButton(
               onPressed: () {
-                flutterWebViewPlugin.launch(selectedUrl, hidden: true);
+                flutterWebViewPlugin.launch(selectedUrl, hidden: true, withJavascript: true);
               },
               child: const Text('Open "hidden" Webview'),
             ),
             ElevatedButton(
               onPressed: () {
-                flutterWebViewPlugin.launch(selectedUrl);
+                flutterWebViewPlugin.launch(selectedUrl,withJavascript: true,);
               },
               child: const Text('Open Fullscreen Webview'),
             ),
