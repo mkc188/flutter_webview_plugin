@@ -8,7 +8,7 @@ authors:
 - Rafal Wachol <gorudonu@gmail.com>
 - Misir Jafarov <misir@fonibo.com>
 homepage: https://github.com/dart-flitter/flutter_webview_plugin
-version: 0.4.0 
+version: 0.4.0
 
 
 environment:
